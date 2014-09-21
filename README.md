@@ -23,7 +23,7 @@ The goal of the project is to create one R script called ```run_analysis.R``` th
 
 The project consists of three files:
 * **run_analysis.R** The R script that collects, works, and cleans the data set.
-* **CodeBook.md** A code book that describes the variables, the data, and any transformations or work that you performed to clean up the data.
+* **code_book.md** A code book that describes the variables, the data, and any transformations or work that you performed to clean up the data.
 * **README.md** This README file.
 
 
