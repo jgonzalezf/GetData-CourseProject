@@ -24,7 +24,7 @@ features <- read.table("./UCI HAR Dataset/features.txt", header = FALSE)
 
 
 # Reads the training data set from the 3 files in the /train subdirectory
-# It also assigns names to the columns in each file
+# It also assigns names to the columns in each file using the features list
 
 subjectTrain <- read.table("./UCI HAR Dataset/train/subject_train.txt", 
                            col.names = c("subjectId"),
@@ -45,7 +45,7 @@ trainData <- cbind(subjectTrain, yTrain, xTrain)
 
 
 # Reads the test data set from the 3 files in the /test subdirectory
-# It also assigns names to the columns in each file
+# It also assigns names to the columns in each file using the features list
 
 subjectTest <- read.table("./UCI HAR Dataset/test/subject_test.txt", 
                           col.names = c("subjectId"),
@@ -104,13 +104,16 @@ finalData <- fullData[finalColumns]
 ##############################################################################
 
 
-# Merges finalData with activityLabels to include descriptive activity names
+# Reads the activity names
 
-activityLabels <- read.table("./UCI HAR Dataset/activity_labels.txt", 
+activityNames <- read.table("./UCI HAR Dataset/activity_labels.txt", 
                              col.names = c("activityId","activityName"),
                              header = FALSE)
 
-finalData <- merge(finalData, activityLabels, by = "activityId", all.x = TRUE)
+
+# Merges finalData with activityLabels to include descriptive activity names
+
+finalData <- merge(finalData, activityNames, by = "activityId", all.x = TRUE)
 
 
 ##
